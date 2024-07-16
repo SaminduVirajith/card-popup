@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <title>Card Popup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    h3 {
+        margin-top: 20px;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .card1,
+    .card2,
+    .card3 {
+        border: 2px solid black;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        width: 350px;
+        margin-bottom: 30px;
+        border-radius: 10px;
+    }
+
+    .card1 img,
+    .card2 img,
+    .card3 img {
+        width: 100%;
+        border-radius: 50%;
+        height: auto;
+        border: 2px solid red;
+        padding: 5px;
+    }
+
+    .hidden-content {
+        display: none;
+        width: 600px;
+    }
+
+    #content-display {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 20px;
+        display: none;
+    }
+
+    #popup-content {
+        position: relative;
+    }
+
+    #popup-content .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        font-size: 50px;
+    }
+
+    .pop-img {
+        width: 500px;
+        border-radius: 50%;
+        border: 2px solid red;
+        padding: 5px;
+    }
+
+    .hidden-text {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 style="color: red;"><span style="color: blue;">British</span> College of Applied Studies</h1>
+        <div class="wrapper">
+            <div class="card1" onclick="displayContent(1)">
+                <img src="images/Screenshot 2024-07-14 161030.png" alt="">
+                <h3>Madumi Pabasara</h3>
+                <h6>madumipabasara@gmail.com</h6>
+            </div>
+            <div class="card2" onclick="displayContent(2)">
+                <img src="images/Screenshot 2024-07-14 161142.png" alt="">
+                <h3>Ravishan Vimukthi</h3>
+                <h6>ravishanvimukthi1@gmail.com</h6>
+            </div>
+            <div class="card3" onclick="displayContent(3)">
+                <img src="images/Screenshot 2024-07-14 161312.png" alt="">
+                <h3>Samindu Virajith</h3>
+                <h6>samidu.virajith@gmail.com</h6>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="card1" onclick="displayContent(4)">
+                <img src="images/costa-alexoglou-250px-opt.png" alt="">
+                <h3>Avishka Bandara</h3>
+                <h6>avishka@gmail.com</h6>
+            </div>
+            <div class="card2" onclick="displayContent(5)">
+                <img src="images/chamal.png" alt="">
+                <h3>Chamal Janaka</h3>
+                <h6>chamalbandara2001@gmail.com</h6>
+            </div>
+            <div class="card3" onclick="displayContent(6)">
+                <img src="images/imash.png" alt="">
+                <h3>Imesh Perera</h3>
+                <h6>imesh.perera@gmail.com</h6>
+            </div>
+        </div>
+
+        <div class="content-display" id="content-display">
+            <div class="popup-content
+" id="popup-content">
+                <!-- Popup content goes here -->
+            </div>
+        </div>
+
+        <!-- Hidden content sections for each card -->
+        <div id="content-1" class="hidden-content">
+            <img class="pop-img" src="images/Screenshot 2024-07-14 161030.png" alt="">
+            <div class="hidden-text">
+                <h3>Madumi Pabasara</h3>
+                <h4>Software Engineer</h4>
+                <h6>madumipabasara@gmail.com</h6>
+            </div>
+        </div>
+        <div id="content-2" class="hidden-content">
+            <img class="pop-img" src="images/Screenshot 2024-07-14 161142.png" alt="">
+            <div class="hidden-text">
+                <h3>Ravishan Vimukthi</h3>
+                <h4>UX/UI Designer</h4>
+                <h6>ravishanvimukthi1@gmail.com</h6>
+            </div>
+        </div>
+        <div id="content-3" class="hidden-content">
+            <img class="pop-img" src="images/Screenshot 2024-07-14 161312.png" alt="">
+            <div class="hidden-text">
+                <h3>Samindu Virajith</h3>
+                <h4>QA Engineer</h4>
+                <h6>samidu.virajith@gmail.com</h6>
+            </div>
+        </div>
+        <div id="content-4" class="hidden-content">
+            <img class="pop-img" src="images/costa-alexoglou-250px-opt.png" alt="">
+            <div class="hidden-text">
+                <h3>Avishka Bandara</h3>
+                <h4>Cable Technician</h4>
+                <h6>avishka@gmail.com</h6>
+            </div>
+        </div>
+        <div id="content-5" class="hidden-content">
+            <img class="pop-img" src="images/chamal.png" alt="">
+            <div class="hidden-text">
+                <h3>Chamal Janaka</h3>
+                <h4>Network Engineer</h4>
+                <h6>chamalbandara2001@gmail.com</h6>
+            </div>
+        </div>
+        <div id="content-6" class="hidden-content">
+            <img class="pop-img" src="images/imash.png" alt="">
+            <div class="hidden-text">
+                <h3>Imesh Perera</h3>
+                <h4>Network Administrator</h4>
+                <h6>imesh.perera@gmail.com</h6>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        function displayContent(cardNumber) {
+            // Hide the content-display div initially
+            const contentDisplay = document.getElementById('content-display');
+            contentDisplay.style.display = 'block';
+
+            // Clear previous content
+            const popupContent = document.getElementById('popup-content');
+            popupContent.innerHTML = '';
+
+            // Get the content for the selected card
+            const content = document.getElementById(`content-${cardNumber}`).innerHTML;
+
+            // Add the new content
+            popupContent.innerHTML = content;
+
+            // Add a close button
+            const closeButton = document.createElement('span');
+            closeButton.innerHTML = '&times;';
+            closeButton.classList.add('close-btn');
+            closeButton.onclick = function () {
+                contentDisplay.style.display = 'none';
+            };
+            popupContent.appendChild(closeButton);
+        }
+
+    </script>
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
